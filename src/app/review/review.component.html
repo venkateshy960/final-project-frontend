@@ -1,0 +1,63 @@
+<div>
+  <h1 style="text-align-last: center">Player Details</h1>
+  <button type="button" style="margin-right: 10%; margin-left: 38%">
+    <a routerLink="/register" style="text-decoration: none; color: black"
+      >Add player</a
+    >
+  </button>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <table style="width: 75%; margin-left: 13%">
+    <tr>
+      <th>Name</th>
+      <th>Hobbie1</th>
+      <th>Hobbie2</th>
+      <th>Hobbie3</th>
+      <th>Hobbie4</th>
+      <th>Hobbie5</th>
+      <th>Hobbie6</th>
+      <th>Hobbie7</th>
+      <th>Hobbie8</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let post of data">
+      <td>{{ post?.name }}</td>
+      <td>{{ post?.hobbie1 }}</td>
+      <td>{{ post?.hobbie2 }}</td>
+      <td>{{ post?.hobbie3 }}</td>
+      <td>{{ post?.hobbie4 }}</td>
+      <td>{{ post?.hobbie5 }}</td>
+      <td>{{ post?.hobbie6 }}</td>
+      <td>{{ post?.hobbie7 }}</td>
+      <td>{{ post?.hobbie8 }}</td>
+      <td>
+        <button type="button" style="margin-right: 15px">
+          <a
+            routerLink="/updateUser"
+            [state]="post"
+            style="text-decoration: none; color: black"
+            >Edit</a
+          >
+        </button>
+        <button type="button" (click)="deleteUser(post.name)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
